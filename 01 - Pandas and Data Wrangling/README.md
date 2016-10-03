@@ -1,3 +1,3 @@
 # READ ME
 
-Notebooks are presented in full or **short** version `filename (short).ipynb`. **Short** version contains only the exercices for easier correction, the profesor's example have been removed.
+In the two files *Data Wrangling with Pandas.ipynb* and *Intro to Pandas.ipynb*, you will find only the exercises. We removed all the tutorial. The parts under the subtitle **Preparation for the exercise** are just the few commands needed to prepare the frames for the exercise.
