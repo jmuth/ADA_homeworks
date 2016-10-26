@@ -13,3 +13,10 @@ helper for uni\_to\_canton.ipynb
 
 ### sum_money.py
 helper for Map\_Vizualization.ipynb.
+
+## Final map result
+
+As github seems to have difficulties to display folium map inside a iPy notebook, we provided here a .jpg screenshot what our Swiss map looks like.
+You can generate it by cloning localy the notebook `Map_Vizualization.ipynb`
+
+![ch_map](results/ch_map.jpg)
