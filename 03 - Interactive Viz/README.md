@@ -1,1 +1,15 @@
 #03 - Interactive Viz
+
+Explanation of the different files presented in this homework
+
+### uni\_to\_canton.ipynb
+Contains all the process followed to link each university to its canton. Create a `canton` dictionnary containting all the universities in each canton
+
+### Map\_Vizualization.ipynb
+Contains first the process to sum all the money assigned to each project, and link it to the dedicated canton. Provide then a vizualization of the distribution of the research money in Switzerland
+
+### unimap.py
+helper for uni\_to\_canton.ipynb
+
+### sum_money.py
+helper for Map\_Vizualization.ipynb.
