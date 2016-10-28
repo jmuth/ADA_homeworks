@@ -19,7 +19,7 @@ helper for Map\_Vizualization.ipynb.
 As github seems to have difficulties to display folium map inside a iPy notebook, we provided here a .png screenshot what our Swiss map looks like.
 You can generate it by cloning localy the notebook `Map_Vizualization.ipynb`
 
-Live example <https://github.com/jmuth/ADA_homeworks/blob/master/03%20-%20Interactive%20Viz/results/ch_map.html>
+![color_scale](results/result.PNG)
 
 And the color scale used to fill the cantons
 ![color_scale](results/color.png)
