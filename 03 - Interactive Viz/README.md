@@ -2,7 +2,7 @@
 
 Explanation of the different files presented in this homework
 
-### uni\_to\_canton.ipynb
+### University\_to\_Canton.ipynb
 Contains all the process followed to link each university to its canton. Create a `canton` dictionnary containting all the universities in each canton
 
 ### Map\_Vizualization.ipynb
@@ -19,7 +19,7 @@ helper for Map\_Vizualization.ipynb.
 As github seems to have difficulties to display folium map inside a iPy notebook, we provided here a .png screenshot what our Swiss map looks like.
 You can generate it by cloning localy the notebook `Map_Vizualization.ipynb`
 
-![color_scale](results/result.PNG)
+![vizualisation](results/result.PNG)
 
-And the color scale used to fill the cantons
-![color_scale](results/color.png)
+The color scale is directly shown in the picture of the map, so we don't add it here.
+
