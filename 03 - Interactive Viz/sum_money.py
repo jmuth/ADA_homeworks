@@ -29,8 +29,8 @@ def plot_dict(dictionnary, title='', labelx='', labely='', size=(15, 4)):
 	ax = fig.add_subplot(111)
 
 	## necessary variables
-	ind = np.arange(len(y))                # the x locations for the groups
-	width = 0.35                      # the width of the bars
+	ind = np.arange(len(y))     # the x locations for the groups
+	width = 0.35                # the width of the bars
 
 	## axes label
 	ax.set_title(title)
