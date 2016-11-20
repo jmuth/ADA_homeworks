@@ -90,4 +90,4 @@ def train_test_RF(forest, data, target, holdout_size):
     s2 = 'Accuracy on held out data %s' % (metrics.accuracy_score(target_holdout, pred_holdout))
     # print(s2)
 
-    return forest
+    return forest, metrics.accuracy_score(target_holdout, pred_holdout)
