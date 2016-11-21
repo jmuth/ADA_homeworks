@@ -12,7 +12,13 @@
     6. Introduce a field `gravity` that take into account the IAT and Exp removed previously to wieght the cards received by the player.  
     
 * **1 Supervised Learning:**
-    1. JONAS: fill it =P
+    1. Reducing to a binary classification problem
+    2. Setting RF parameters on a first set of features
+    3. Training and testing on first set of features
+        * First results
+    4. Training and testing on two more sets of features
+    5. Discussing results
+    6. Bonus: learning curves
     
 * **2 Clustering:**
     1. Create a understandable matrix for a cluster algorithm (numerical values only)
