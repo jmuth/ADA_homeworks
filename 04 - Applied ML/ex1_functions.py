@@ -66,7 +66,7 @@ def impo_graph(imp, labels):
     # graph
     fig, ax = plt.subplots()
     ax.bar(range(len(imp)), imp)
-    ax.set_xticks(range(0, n_col))
+    ax.set_xticks(np.arange(0.5, n_col+0.5, 1))
     ax.set_xticklabels(importance.columns, rotation=90)
 
     return ax
@@ -99,7 +99,6 @@ def train_test_RF(forest, data, target, holdout_size):
     return forest, metrics.accuracy_score(target_holdout, pred_holdout)
 
 def plot_cnf(cnf, classes):
-    classes = [0, 1]
     plt.figure()
     plt.imshow(cnf, interpolation='none', cmap=plt.cm.Blues)
     plt.colorbar()
