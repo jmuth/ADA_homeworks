@@ -4,7 +4,7 @@
 * **0 Analysis_and_Cleaning:**
     1. Check if `playerShort` is a unique key for the table (it is!)
     2. Remove the players without information on their skin color
-    3. Merge rater1 and rater2 into a `skin_color` field
+    3. Merge rater1 and rater2 into a `skin_colour` field
     4. Remove useless columns and columns containing info on referee (and not on players)
     5. Aggregate the table on `playerShort` following the rules:
         * **Keep only first value:** for values the we suppose to be unique for each player
