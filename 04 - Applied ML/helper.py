@@ -11,28 +11,32 @@ from sklearn.model_selection import ShuffleSplit
 #################### Supervised Learning ####################
 
 # these are the features of our dataset
-orig_cols = ['height', 
-        'weight', 
-        'games', 
-        'victories', 
-        'ties', 
-        'defeats', 
-        'goals', 
-        'yellowCards',
-        'yellowReds',
-        'redCards',
-        'skin_colour', 
-        'gravity',
-        'meanIAT_yellowCards',
-        'meanIAT_yellowReds', 
-        'meanIAT_redCards',
-        'meanIAT_gravity',
-        'meanExp_yellowCards',
-        'meanExp_yellowReds', 
-        'meanExp_redCards',
-        'meanExp_gravity'
-       ]
+orig_cols = ['yellowReds',
+             'ties',
+             'redCards',
+             'weight',
+             'height',
+             'defeats',
+             'games',
+             'victories',
+             'yellowCards',
+             'position',
+             'leagueCountry',
+             'goals',
+             'club',
+             'skin_colour',
+             'birthday',
+             'gravity',
+             'meanIAT_yellowCards',
+             'meanIAT_yellowReds',
+             'meanIAT_redCards',
+             'meanIAT_gravity',
+             'meanExp_yellowCards',
+             'meanExp_yellowReds',
+             'meanExp_redCards',
+             'meanExp_gravity']
 
+"""
 def separator(x):
     if x <= 0.25:
         return 0.
@@ -42,16 +46,10 @@ def separator(x):
         return 2.
     elif x <= 1.:
         return 3.
-
-def binary_separator(x):
-    if x <= 0.5:
-        return 0.
-    else:
-        return 1.
+"""
     
-def prepare_data(df, cols, sep):
+def prepare_data(df, cols):
     target = df['skin_colour']
-    target = target.apply(sep)
     print('df shape: '+str(df.shape))
     data = df.drop(cols, axis=1).as_matrix()
     print('data shape: '+str(data.shape))
@@ -163,13 +161,14 @@ def details(pred, target):
         else:
             target0.append(t)
             pred0.append(pred[i])
-    
-    print(' ')   
+      
     print('# of people with light skin: %s' % len(target0))
     print('# of people with dark skin: %s' % len(target1))
     print(' ')
     print('accuracy for light skin: %s' % metrics.accuracy_score(target0, pred0))
     print('accuracy for dark skin: %s' % metrics.accuracy_score(target1, pred1))
+    
+    return target0, target1
 
 #################
 ## the following comes from http://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html
@@ -248,7 +247,7 @@ def make_learning_curve(data, target, title, **kwargs):
     # score curves, each time with 20% data randomly selected as a validation set.
     cv = ShuffleSplit(n_splits=20, test_size=0.2, random_state=0)
 
-    estimator = RandomForestClassifier(n_estimators=100)
+    estimator = RandomForestClassifier(n_estimators=200)
     plot_learning_curve(estimator, title, X, y, ylim=(0.7, 1.02), cv=cv, n_jobs=1)
 
     plt.show()
