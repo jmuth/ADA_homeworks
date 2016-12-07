@@ -71,7 +71,7 @@ class Cleaner:
         clean_text = clean_text.lower()
         clean_text = tokenize(clean_text)
         clean_text = self.remove_stop_words(clean_text)
-        clean_text = remove_short_words(clean_text)
+        # clean_text = remove_short_words(clean_text)
         clean_text = self.remove_from_filter_list(clean_text)
         # clean_text = stem(clean_text)
         clean_text = " ".join(clean_text)
