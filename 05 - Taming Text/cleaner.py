@@ -53,9 +53,11 @@ def stem(list_words):
 
 
 class Cleaner:
-    def __init__(self, filter_list=[]):
+    def __init__(self, filter_list=[], tokenized=True, stemmed=True):
         self.filter_list = filter_list
         self.stop_list = _inner_load_stopwords()
+        self.tokenized = tokenized
+        self.stemmed = stemmed
 
     def cleaning_pipeline_series(self, series):
         return series.apply(self.cleaning_pipeline)
@@ -71,10 +73,12 @@ class Cleaner:
         clean_text = clean_text.lower()
         clean_text = tokenize(clean_text)
         clean_text = self.remove_stop_words(clean_text)
-        # clean_text = remove_short_words(clean_text)
+        clean_text = remove_short_words(clean_text)
         clean_text = self.remove_from_filter_list(clean_text)
-        # clean_text = stem(clean_text)
-        clean_text = " ".join(clean_text)
+        if self.stemmed:
+            clean_text = stem(clean_text)
+        if not self.tokenized:
+            clean_text = " ".join(clean_text)
         return clean_text
 
     def remove_stop_words(self, list_words):

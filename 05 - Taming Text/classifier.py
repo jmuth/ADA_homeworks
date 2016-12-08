@@ -19,6 +19,7 @@ class Classifier:
         self.n_passes = None
         self.cleaner = Cleaner()
         self.folder_name = "models"
+        self.corpus = None
 
     def define_dictionary(self, texts):
         """
@@ -28,6 +29,9 @@ class Classifier:
         # construct a document-term matrix
         self.dictionary = gensim.corpora.Dictionary(texts)
         print("[INFO] Dictionary defined")
+        self.set_corpus(texts)
+        print("[INFO] Corpus defined")
+
 
     @timing
     def define_model(self, texts, n_topics, n_passes):
@@ -49,10 +53,21 @@ class Classifier:
         bag_of_word = self.dictionary.doc2bow(clean_text)
         return self.lda_model[bag_of_word]
 
+    def set_corpus(self, series):
+        # clean_series = self.cleaner.cleaning_pipeline_series(series)
+        corpus = [self.dictionary.doc2bow(doc) for doc in series]
+        self.corpus = corpus
+
     def set_cleaner(self, cleaner):
         self.cleaner = cleaner
 
-    def print_model(self, n_topics=20, n_words=10):
+    def return_model(self, n_topics=1000, n_words=10):
+        topics = []
+        for i, bag in enumerate(self.lda_model.print_topics(num_topics=n_topics, num_words=n_words)):
+            topics.append(bag)
+        return topics
+
+    def print_model(self, n_topics=1000, n_words=10):
         for i, bag in enumerate(self.lda_model.print_topics(num_topics=n_topics, num_words=n_words)):
             print("============")
             print("Cluster ", i, ": ", bag)
